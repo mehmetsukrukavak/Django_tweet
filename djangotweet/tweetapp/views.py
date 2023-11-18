@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import models
+from django.urls import reverse
 
 # Create your views here.
 def list_tweet(request):
@@ -9,4 +10,10 @@ def list_tweet(request):
 
 
 def add_tweet(request):
-    return render(request,'tweetapp/addtweet.html')
+    if request.POST:
+        nickname = request.POST["nickname"]
+        message = request.POST["message"]
+        models.Tweet.objects.create(nickname=nickname, message=message)
+        return redirect(reverse('tweetapp:listtweet'))
+    else:
+        return render(request,'tweetapp/addtweet.html')

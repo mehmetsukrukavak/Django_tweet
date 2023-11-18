@@ -24,12 +24,12 @@
               <li class="nav-item">
                 <a {% if request.resolver_match.url_name == 'addtweet' %} class="nav-link active" {% else %} class="nav-link" {% endif %}  href="{% url 'tweetapp:addtweet' %}">Add Tweet</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a {% if request.resolver_match.url_name == 'addtweetbyform' %} class="nav-link active" {% else %} class="nav-link" {% endif %}  href="{% url 'tweetapp:addtweetbyform' %}">Add Tweet By Form</a>
               </li>
               <li class="nav-item">
                 <a {% if request.resolver_match.url_name == 'addtweetbymodelform' %} class="nav-link active" {% else %} class="nav-link" {% endif %}  href="{% url 'tweetapp:addtweetbymodelform' %}">Add Tweet By ModelForm</a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>

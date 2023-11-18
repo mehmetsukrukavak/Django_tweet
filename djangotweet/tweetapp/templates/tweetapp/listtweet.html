@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>List</h1>
+<h1>ListTweet Page</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+       
+        <th scope="col">Sender</th>
+        <th scope="col">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for tweet in tweets%}
+      <tr>
+        <td>{{tweet.nickname}}</td>
+        <td>{{tweet.message}}</td>
+       
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

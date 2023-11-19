@@ -57,7 +57,12 @@ def add_tweet_by_modelform(request):
       else:
         form = AddTweetModelForm()
         return render(request,'tweetapp/addtweetbymodelform.html', context={"form":form})
-
+@login_required(login_url="/login")
+def delete_tweet(request, id):
+   tweet = models.Tweet.objects.get(pk=id)
+   if request.user == tweet.username:
+      models.Tweet.objects.filter(id=id).delete()
+      return redirect("tweetapp:listtweet")
 
 class SignUpView(CreateView):
    form_class = UserCreationForm

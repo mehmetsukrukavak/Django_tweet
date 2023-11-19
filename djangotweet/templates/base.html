@@ -39,6 +39,9 @@
               <li class="nav-item">
                 <a {% if request.resolver_match.url_name == 'login' %} class="nav-link active" {% else %} class="nav-link" {% endif %}  href="{% url 'login' %}">Login</a>
               </li>
+              <li class="nav-item">
+                <a {% if request.resolver_match.url_name == 'signup' %} class="nav-link active" {% else %} class="nav-link" {% endif %}  href="{% url 'tweetapp:signup' %}">SignUp</a>
+              </li>
               {% endif%}
             </ul>
           </div>

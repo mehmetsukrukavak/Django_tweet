@@ -17,9 +17,9 @@ def list_tweet(request):
 @login_required(login_url="/login")
 def add_tweet(request):
     if request.POST:
-        nickname = request.POST["nickname"]
+       
         message = request.POST["message"]
-        models.Tweet.objects.create(nickname=nickname, message=message)
+        models.Tweet.objects.create(username=request.user, message=message)
         return redirect(reverse('tweetapp:listtweet'))
     else:
         return render(request,'tweetapp/addtweet.html')
